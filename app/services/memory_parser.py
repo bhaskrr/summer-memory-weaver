@@ -10,6 +10,7 @@ class MemoryParserAgent:
 
     def parse_text_memory(self, text: str):
         """Parses a raw text memory."""
+        print("MemoryParserAgent: Starting text parsing")
 
         doc = self.nlp(text)
 
@@ -52,6 +53,7 @@ class MemoryParserAgent:
         ]
         extracted_info["main_verbs"] = list(set(main_verbs)) # * Remove duplicates
 
+        print("MemoryParserAgent: Text parsing complete.")
         return extracted_info
 
     def parse_memory(self, input_type: str, input_data: str):
