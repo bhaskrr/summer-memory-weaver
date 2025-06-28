@@ -3,7 +3,7 @@ import re
 
 
 class StoryGeneratorAgent:
-    def __init__(self, llm_for_generation="deepseek-r1:1.5b", temperature=0.8):
+    def __init__(self, llm_for_generation="deepseek-r1:1.5b", temperature=0.5):
         """Initializes the StoryGeneratorAgent"""
         self.llm_for_generation = OllamaLLM(
             model=llm_for_generation,
