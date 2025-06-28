@@ -26,7 +26,7 @@ class StoryGeneratorAgent:
         story_generation_prompt = f"""
         You are an expert storyteller.
 
-        Your task is to craft a vivid, immersive narrative based on the real-life memories, central themes, and story structure provided below.
+        Your task is to craft a vivid, immersive narrative based on the real-life summer memories, central themes, and story outline provided below.
 
         Memories:
         {memory_texts}
@@ -38,13 +38,16 @@ class StoryGeneratorAgent:
         {outline_sections}
 
         Instructions:
-        - Seamlessly weave the memories into a cohesive and engaging story, closely following the outline.
-        - Highlight the specified themes throughout, ensuring they resonate emotionally.
-        - Employ rich, sensory descriptions and authentic emotional depth to bring each scene to life.
-        - Evoke the feeling of reminiscing about a cherished summer adventure, making the story feel personal and heartfelt.
-        - Maintain a natural flow and narrative voice.
+        - Seamlessly weave the memories into a single cohesive and emotionally engaging story that closely follows the provided outline.
+        - Make the central themes feel organic and deeply woven into the narrative, so they naturally emerge rather than feel forced.
+        - Use rich sensory details, authentic dialogue, and emotional nuance to bring scenes and characters to life.
+        - Evoke the nostalgic, heartfelt feeling of reminiscing about a cherished summer experience.
+        - Write in a natural, flowing narrative voice that feels both personal and reflective.
+        - Keep the pacing balanced, ensuring the story builds momentum and emotional depth toward a satisfying conclusion.
 
-        Output only the completed story—do not include explanations or any extraneous text.
+        Output:
+        Only the complete final story. Do not include notes, explanations, or any additional commentary.
+        Strictly follow these instructions.
         """
 
         response = self.llm_for_generation.invoke(story_generation_prompt)
