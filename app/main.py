@@ -1,27 +1,17 @@
-from graph import graph
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
-memories = [
-    {
-        "type": "text",
-        "original_text": "Went to Goa with friends. Beaches were amazing!",
-    },
-    {
-        "type": "text",
-        "original_text": "Learned to surf on July 10th. So much fun.",
-    },
-    {
-        "type": "text",
-        "original_text": "Ate the best seafood at Calangute beach.",
-    },
-    {
-        "type": "text",
-        "original_text": "Visited a historical fort near Panjim. Beautiful architecture.",
-    },
-    {
-        "type": "text",
-        "original_text": "Relaxed by the pool all day.",
-    }
-]
+# Initialize the fastapi app
+app = FastAPI()
 
-result = graph.invoke({"input_memories": memories})
-print(result["output"])
+
+# Specify templates folder
+templates = Jinja2Templates(directory="app/templates")
+
+
+# Endpoints
+@app.get("/", response_class=HTMLResponse)
+async def read_root(request: Request):
+    """Render Homepage"""
+    return templates.TemplateResponse("index.html", {"request": request, "story": None})
