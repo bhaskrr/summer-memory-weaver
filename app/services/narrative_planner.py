@@ -1,4 +1,4 @@
-from schemas.llm_schemas import ThemeResponseSchema
+from app.schemas.llm_schemas import ThemeResponseSchema
 from langchain_ollama import OllamaLLM
 from typing import List
 import json
