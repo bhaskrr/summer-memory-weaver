@@ -1,9 +1,12 @@
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 # Initialize the fastapi app
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 
 # Specify templates folder
