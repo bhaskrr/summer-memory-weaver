@@ -1,24 +1,38 @@
 ![banner-image](./media/banner.png)
 
-# 🧠 Summer Memory Weaver
+# Summer Memory Weaver
 
-An AI-powered storytelling agent that transforms fragmented summer memories—text, audio, and images—into beautiful, coherent narratives using NLP, RAG, and multi-agent orchestration.
+An AI-powered storytelling agent that transforms fragmented summer memories into beautiful, coherent narratives using NLP and multi-agent orchestration - privately, on your machine.
 
 ## 📌 Table of Contents <!-- omit in toc -->
 
-- [🧠 Summer Memory Weaver](#-summer-memory-weaver)
+- [Summer Memory Weaver](#summer-memory-weaver)
   - [🌞 Introduction](#-introduction)
+  - [🌱 Why?](#-why)
   - [✨ Features](#-features)
+  - [🛠️ Built with](#️-built-with)
   - [🧠 Agents Implemented](#-agents-implemented)
     - [📝 1. Memory Parser Agent](#-1-memory-parser-agent)
     - [📜 2. Narrative Planner Agent](#-2-narrative-planner-agent)
     - [✏️ 3. Story Generator Agent](#️-3-story-generator-agent)
+  - [🧠 How it works](#-how-it-works)
+  - [🎯 What's next?](#-whats-next)
 
 ## 🌞 Introduction
 
 Summer is a collection of moments — scattered journal entries, late-night voice notes, unforgettable trips, and photos lost in your camera roll.
 
 Summer Memory Weaver is your AI-powered personal historian that takes these fragmented memories and weaves them into a beautiful, enriched narrative.
+
+## 🌱 Why?
+
+Every summer, we collect moments — quick notes, snippets of conversations, scattered photos — but they stay fragmented.
+
+**Summer Memory Weaver** reimagines how we remember:
+
+- Uses **local LLM agents** to analyze, summarize, and narrate your memories.
+- Creates a **personal story** from real moments.
+- Works fully offline, ensuring your memories stay **private and secure**.
 
 ## ✨ Features
 
@@ -28,8 +42,15 @@ Summer Memory Weaver is your AI-powered personal historian that takes these frag
 - 🧠 Uses spaCy-based NLP to extract key events, people, and places
 - ✍️ Generates a narrative that feels deeply personal and human
 - 🧩 Modular agent-based architecture powered by LangChain + LangGraph
+- 🔒 **Runs fully locally** — No API calls; keeps your data private.
 
-Stay tuned for further updates!
+## 🛠️ Built with
+
+- Python 🐍
+- SpaCy (NLP)
+- Ollama (local LLM serving)
+- Langchain & Langgraph (multi-agent orchastration)
+- Streamlit (UI)
 
 ## 🧠 Agents Implemented
 
@@ -63,3 +84,18 @@ How it works:
 - Uses rich sensory language and emotional depth.
 - Closely follows the generated outline.
 - Produces a cohesive, personal, and engaging summer story.
+
+## 🧠 How it works
+
+1. **You input memory fragments** (texts, notes).
+2. **Memory parser agent** extracts.
+3. **Narrative planner agent** drafts a story structure.
+4. **Story generator agent** generates the final narrative.
+
+> All powered by a local LLM running with Ollama — no internet required.
+
+## 🎯 What's next?
+
+- 🖼️ Add support for images & audio memories.
+- 📊 Richer analytics on summer themes.
+- 🧪 Experiment with fine-tuned local models for storytelling.
