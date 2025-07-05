@@ -15,6 +15,7 @@ An AI-powered storytelling agent that transforms fragmented summer memories into
     - [📝 1. Memory Parser Agent](#-1-memory-parser-agent)
     - [📜 2. Narrative Planner Agent](#-2-narrative-planner-agent)
     - [✏️ 3. Story Generator Agent](#️-3-story-generator-agent)
+    - [✨ 4. Highlight Generator Agent](#-4-highlight-generator-agent)
   - [🧠 How it works](#-how-it-works)
   - [🎯 What's next?](#-whats-next)
 
@@ -84,6 +85,18 @@ How it works:
 - Uses rich sensory language and emotional depth.
 - Closely follows the generated outline.
 - Produces a cohesive, personal, and engaging summer story.
+
+### ✨ 4. Highlight Generator Agent
+
+Purpose:
+Summarizes the generated story into a short, emotionally impactful highlight that captures its essence.
+
+How it works:
+
+- Extracts the most memorable, vivid, or emotionally resonant moments from the story.
+- Produces a concise highlight (e.g., in 3–4 sentences) designed to quickly convey what makes the story special.
+- Writes in an engaging, descriptive style to make the highlight feel appealing, as if introducing the story to someone who hasn’t read it.
+- Avoids commentary or explanation, focusing purely on the story’s most striking moments.
 
 ## 🧠 How it works
 
