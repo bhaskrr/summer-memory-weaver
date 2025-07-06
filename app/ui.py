@@ -1,5 +1,6 @@
 import streamlit as st
-from graph import graph
+from graph_definition import graph
+from services.highlight_generator import HighlightGeneratorAgent
 
 # --- Custom CSS for styling ---
 st.markdown(
@@ -66,6 +67,8 @@ with st.sidebar:
         "Number of memory chunks:",
         (1, 2, 3, 4, 5),
     )
+    
+    generate_highlight = st.checkbox(label="Generate Highlight")
 
 memories = []
 for i in range(num_text_options):
@@ -98,3 +101,12 @@ if st.button("✨ Generate Story"):
                 unsafe_allow_html=True,
             )
             st.markdown(result["output"])
+            
+            if generate_highlight:
+                highlight_generator = HighlightGeneratorAgent()
+                highlight = highlight_generator.generate_highlight(result["output"])
+                st.markdown(
+                "<h4 style='color:#2563eb; margin-top:2em;'>Story Highlight:</h4>",
+                unsafe_allow_html=True,
+            )
+                st.markdown(highlight)
