@@ -13,7 +13,7 @@ st.markdown(
         font-family: 'Segoe UI', sans-serif;
     }
     .title-style {
-        color: #2b2d42;
+        color: #c5c5c5;
         font-size: 2.8rem;
         font-weight: 700;
         letter-spacing: 1px;
@@ -57,7 +57,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown(
-    "<p style='color:#475569; font-size:1.2rem; margin-bottom:2em;'>Relive your summer memories as a beautiful story. Enter your favorite moments below!</p>",
+    "<p style='color:#f5f5f5; font-size:1.2rem; margin-bottom:2em;'>Relive your summer memories as a beautiful story. Enter your favorite moments below!</p>",
     unsafe_allow_html=True,
 )
 
