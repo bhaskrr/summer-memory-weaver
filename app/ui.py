@@ -76,7 +76,7 @@ for i in range(num_text_options):
         "...",
         value="",
         height=80,
-        max_chars=300,
+        max_chars=500,
         placeholder=f"Memory #{i+1} (e.g., 'Watched the sunset at the beach...')",
         key=f"text_{i}",
         label_visibility="collapsed",
