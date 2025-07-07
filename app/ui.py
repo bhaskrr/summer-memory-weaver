@@ -68,6 +68,13 @@ with st.sidebar:
         (1, 2, 3, 4, 5),
     )
     
+    tone_type = st.selectbox(
+        "Choose tone",
+        ("Nostalgic", "humorous", "reflective", "cinematic", "poetic"),
+        index=None,
+        placeholder="--Select a tone--"
+    )
+    
     generate_highlight = st.checkbox(label="Generate Highlight")
 
 memories = []
