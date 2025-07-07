@@ -75,6 +75,13 @@ with st.sidebar:
         placeholder="--Select a tone--"
     )
     
+    narrative_type = st.selectbox(
+        "Choose narrative style",
+        ("First-person", "Third-person"),
+        index=None,
+        placeholder="--Select narrative style--"
+    )
+    
     generate_highlight = st.checkbox(label="Generate Highlight")
 
 memories = []
