@@ -62,7 +62,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.markdown("<h4 style='color:#3730a3;'>Settings</h4>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color:#f7f0f3;'>Settings</h3>", unsafe_allow_html=True)
     num_text_options = st.selectbox(
         "Number of memory chunks:",
         (1, 2, 3, 4, 5),
