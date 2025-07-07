@@ -62,27 +62,55 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.markdown("<h3 style='color:#f7f0f3;'>Settings</h3>", unsafe_allow_html=True)
-    num_text_options = st.selectbox(
-        "Number of memory chunks:",
-        (1, 2, 3, 4, 5),
+    st.markdown("## ⚙️ Settings")
+    st.markdown(
+        "Customize how your summer story is generated. "
     )
     
+    st.markdown("---")
+
+    num_text_options = st.selectbox(
+        "📝 Number of memory chunks:",
+        (1, 2, 3, 4, 5),
+        index=0,
+        help="Select how many separate memories you want to add to build your story."
+    )
+
     tone_type = st.selectbox(
-        "Choose tone",
-        ("Nostalgic", "humorous", "reflective", "cinematic", "poetic"),
+        "🎨 Choose tone",
+        ("Nostalgic", "Humorous", "Reflective", "Cinematic", "Poetic"),
         index=None,
-        placeholder="--Select a tone--"
+        placeholder="-- Select a tone --",
+        help="Set the emotional feel or atmosphere of your story."
     )
     
     narrative_type = st.selectbox(
-        "Choose narrative style",
+        "📖 Choose narrative style",
         ("First-person", "Third-person"),
         index=None,
-        placeholder="--Select narrative style--"
+        placeholder="-- Select narrative style --",
+        help="Decide from whose perspective the story should be told."
     )
     
-    generate_highlight = st.checkbox(label="Generate Highlight")
+    story_length = st.selectbox(
+        "📏 Story length preference",
+        ("Short & punchy", "Moderate", "Detailed & immersive"),
+        index=None,
+        placeholder="--Select length preference--",
+        help="Set the preferred length for the story."
+    )
+
+    
+    st.markdown("---")
+
+    creative_flag = st.checkbox(
+        "✨ Enable creative storytelling",
+        help="Enable to let the AI enrich your story with **creative details, vivid metaphors, and artistic depth**. ")
+
+    generate_highlight = st.checkbox(
+        "🌟 Generate Story Highlight",
+        help="Create a short, engaging highlight summary of your final story."
+    )
 
 memories = []
 for i in range(num_text_options):
