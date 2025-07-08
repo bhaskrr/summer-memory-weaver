@@ -3,14 +3,14 @@ import re
 
 
 class StoryGeneratorAgent:
-    def __init__(self, llm_for_generation="deepseek-r1:1.5b", temperature=0.5):
+    def __init__(self, llm_for_generation="llama3.2:1b", temperature=0.5):
         """Initializes the StoryGeneratorAgent"""
         self.llm_for_generation = OllamaLLM(
             model=llm_for_generation,
             temperature=temperature,
         )
 
-    def generate_story(self, memories: list[dict], narrative_plan: dict):
+    def generate_story(self, memories: list[dict], narrative_plan: dict, tone: str, preferred_length: str):
         """Generates the story using the memories and narrative plan."""
         memory_texts = "\n".join(
             [f"- {m['original_text']}" for m in memories if "original_text" in m]
@@ -24,9 +24,9 @@ class StoryGeneratorAgent:
         )
 
         story_generation_prompt = f"""
-        You are an expert storyteller.
+        You are a masterful storyteller renowned for your ability to transform real-life memories into captivating narratives.
 
-        Your task is to craft a vivid, immersive narrative based on the real-life summer memories, central themes, and story outline provided below.
+        Your task is to weave the following summer memories, themes, and story outline into a single, immersive story.
 
         Memories:
         {memory_texts}
@@ -37,19 +37,20 @@ class StoryGeneratorAgent:
         Story Outline:
         {outline_sections}
 
-        Instructions:
-        - Seamlessly weave the memories into a single cohesive and emotionally engaging story that closely follows the provided outline.
-        - Make the central themes feel organic and deeply woven into the narrative, so they naturally emerge rather than feel forced.
-        - Use rich sensory details, authentic dialogue, and emotional nuance to bring scenes and characters to life.
-        - Evoke the nostalgic, heartfelt feeling of reminiscing about a cherished summer experience.
-        - Write in a natural, flowing narrative voice that feels both personal and reflective.
-        - Keep the pacing balanced, ensuring the story builds momentum and emotional depth toward a satisfying conclusion.
+        Guidelines:
+        - Integrate the memories naturally and seamlessly, ensuring each one contributes meaningfully to the story's progression.
+        - Let the central themes emerge organically through the characters, events, and emotions—avoid making them feel forced or artificial.
+        - Write in a {tone} tone, and ensure the story is {preferred_length}.
+        - Use vivid sensory details, authentic dialogue, and emotional nuance to bring scenes and characters to life.
+        - Maintain a natural, flowing narrative voice that feels personal and genuine.
+        - Balance the pacing, building emotional depth and momentum toward a satisfying conclusion.
+        - Follow the provided outline closely, but feel free to enhance transitions and add creative touches that enrich the narrative.
 
-        Output:
-        Only the complete final story. Do not include notes, explanations, or any additional commentary.
-        Strictly follow these instructions.
+        Output Instructions:
+        - Output only the complete, final story.
+        - Do not include any notes, explanations, or commentary.
+        - Strictly adhere to these instructions.
         """
 
         response = self.llm_for_generation.invoke(story_generation_prompt)
-        response = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL).strip()
         return response
