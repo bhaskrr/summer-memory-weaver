@@ -77,7 +77,7 @@ Respond strictly in the following format (JSON-like):
             print(f"Error analyzing themes: {e}. Falling back to default.")
             return ["Summer Memories"]
 
-    def plan_narrative(self, memories: List[dict]):
+    def plan_narrative(self, memories: List[dict], narrative_style: str = "first_person"):
         """Generates a detailed narrative plan based on memories.
         This involves theme analysis and outlining.
         """
@@ -97,6 +97,7 @@ Respond strictly in the following format (JSON-like):
                 and the raw memory texts: {', '.join([m['original_text'] for m in memories if 'original_text' in m])}
 
                 Suggest a detailed thematic outline for a summer story.
+                Use {narrative_style} narrative style.
                 For each section, suggest a title and briefly mention which types of memories it would cover.
                 Format as JSON array of objects:
                 [
