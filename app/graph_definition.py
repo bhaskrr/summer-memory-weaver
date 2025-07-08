@@ -9,6 +9,9 @@ from typing import TypedDict, List
 
 class State(TypedDict):
     input_memories: List[dict]
+    tone: str
+    narrative_style: str
+    length_preference: str
     extracted_info: List[dict]
     narrative_plan: dict
     output: str
@@ -28,7 +31,7 @@ def memory_parser_node(state: State):
 
 def narrative_planner_node(state: State):
     narrative_planner_agent = NarrativePlannerAgent()
-    plan = narrative_planner_agent.plan_narrative(state["extracted_info"])
+    plan = narrative_planner_agent.plan_narrative(state["extracted_info"], state["narrative_style"])
     return {"narrative_plan": plan}
 
 
@@ -36,7 +39,8 @@ def story_generator_node(state: State):
     story_generator_agent = StoryGeneratorAgent()
     print(f"StoryGeneratorAgent: Generating story...")
     generated_story = story_generator_agent.generate_story(
-        state["extracted_info"], state["narrative_plan"]
+        state["extracted_info"], state["narrative_plan"],
+        state["tone"], state["length_preference"]
     )
     print("Story generation complete.")
     return {"output": generated_story}
