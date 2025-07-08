@@ -134,10 +134,17 @@ st.markdown("---")
 
 if st.button("✨ Generate Story"):
     if not memories:
-        st.warning("Please enter at least one memory to generate your story.")
-    else:
+        st.warning("Please enter at least one memory to generate your story!")
+    if not tone_type:
+        st.warning("Please select a tone type!")
+    if not narrative_type:
+        st.warning("Please select a narrative type!")
+    if not story_length:
+        st.warning("Please select a length preference for the story!")
+    
+    if memories and tone_type and narrative_type and story_length:
         with st.spinner("Weaving your summer story..."):
-            result = graph.invoke({"input_memories": memories})
+            result = graph.invoke({"input_memories": memories, "tone": tone_type, "narrative_style": narrative_type, "length_preference": story_length})
             st.markdown(
                 "<h4 style='color:#2563eb; margin-top:2em;'>Your Summer Story:</h4>",
                 unsafe_allow_html=True,
