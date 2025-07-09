@@ -144,7 +144,13 @@ if st.button("✨ Generate Story"):
     
     if memories and tone_type and narrative_type and story_length:
         with st.spinner("Weaving your summer story..."):
-            result = graph.invoke({"input_memories": memories, "tone": tone_type, "narrative_style": narrative_type, "length_preference": story_length})
+            result = graph.invoke({
+                "input_memories": memories,
+                "tone": tone_type,
+                "narrative_style": narrative_type,
+                "length_preference": story_length,
+                "creative": creative_flag,
+            })
             st.markdown(
                 "<h4 style='color:#2563eb; margin-top:2em;'>Your Summer Story:</h4>",
                 unsafe_allow_html=True,
