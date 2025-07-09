@@ -112,7 +112,7 @@ How it works:
 3. **Narrative planner agent** drafts a story structure.
 4. **Story generator agent** generates the final narrative.
 
-> **All powered by a local LLM running with Ollama — no internet required.**
+**All powered by local LLMs running with Ollama — no internet required.**
 
 ## 🛠️ Customization Features
 
