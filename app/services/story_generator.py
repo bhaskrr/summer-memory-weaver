@@ -49,6 +49,7 @@ class StoryGeneratorAgent:
         - Follow the provided outline closely, but feel free to enhance transitions and add creative touches that enrich the narrative.
 
         Output Instructions:
+        - Use proper markdown formatting.
         - Output only the complete, final story.
         - Do not include any notes, explanations, or commentary.
         - Strictly adhere to these instructions.
