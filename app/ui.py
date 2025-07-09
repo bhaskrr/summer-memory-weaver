@@ -152,10 +152,11 @@ if st.button("✨ Generate Story"):
             st.markdown(result["output"])
             
             if generate_highlight:
-                highlight_generator = HighlightGeneratorAgent()
-                highlight = highlight_generator.generate_highlight(result["output"])
-                st.markdown(
-                "<h4 style='color:#2563eb; margin-top:2em;'>Story Highlight:</h4>",
-                unsafe_allow_html=True,
-            )
+                with st.spinner("Generating story highlight..."):
+                    highlight_generator = HighlightGeneratorAgent()
+                    highlight = highlight_generator.generate_highlight(result["output"], result["tone"])
+                    st.markdown(
+                    "<h4 style='color:#2563eb; margin-top:2em;'>Story Highlight:</h4>",
+                    unsafe_allow_html=True,
+                )
                 st.markdown(highlight)
