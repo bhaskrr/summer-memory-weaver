@@ -1,0 +1,17 @@
+[project]
+name = "summer-memory-weaver"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain>=0.3.26",
+    "langchain-community>=0.3.26",
+    "langchain-ollama>=0.3.3",
+    "langgraph>=0.4.9",
+    "pip>=25.1.1",
+    "pytest>=8.4.1",
+    "spacy>=3.8.7",
+    "streamlit>=1.46.1",
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+]
