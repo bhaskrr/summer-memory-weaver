@@ -10,7 +10,7 @@ class StoryGeneratorAgent:
             temperature=temperature,
         )
 
-    def generate_story(self, memories: list[dict], narrative_plan: dict, tone: str, preferred_length: str):
+    def generate_story(self, memories: list[dict], narrative_plan: dict, tone: str, preferred_length: str, creative: bool = False):
         """Generates the story using the memories and narrative plan."""
         memory_texts = "\n".join(
             [f"- {m['original_text']}" for m in memories if "original_text" in m]
@@ -41,6 +41,8 @@ class StoryGeneratorAgent:
         - Integrate the memories naturally and seamlessly, ensuring each one contributes meaningfully to the story's progression.
         - Let the central themes emerge organically through the characters, events, and emotions—avoid making them feel forced or artificial.
         - Write in a {tone} tone, and ensure the story is {preferred_length}.
+        - {'Feel free to creatively expand with fictional details, metaphors, and poetic language.' if creative else 'Strictly base the story on the provided memories; do not invent new details.'}
+        - Highlight the specified themes.
         - Use vivid sensory details, authentic dialogue, and emotional nuance to bring scenes and characters to life.
         - Maintain a natural, flowing narrative voice that feels personal and genuine.
         - Balance the pacing, building emotional depth and momentum toward a satisfying conclusion.
