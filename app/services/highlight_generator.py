@@ -13,7 +13,7 @@ class HighlightGeneratorAgent:
             top_p=0.8,
         )
 
-    def generate_highlight(self, story: str, num_sentences: int = 3):
+    def generate_highlight(self, story: str, tone: str, num_sentences: int = 3):
         """Generate the story highlight"""
 
         prompt = f"""You are an expert storyteller and editor.\n\n
@@ -21,7 +21,7 @@ class HighlightGeneratorAgent:
             Story:\n{story}\n\n
             Instructions:\n
             - Identify and extract the most powerful, memorable, or emotionally resonant moments.\n
-            - Summarize these into a single cohesive highlight of no more than {num_sentences} sentences.\n
+            - Summarize these into a single cohesive highlight with a {tone} tone of no more than {num_sentences} sentences.\n
             - Make the highlight vivid and compelling, so it feels like a captivating teaser to someone who hasn’t read the story.\n
             - Output only the highlight text—do not add any explanations, commentary, or formatting."""
         try:
