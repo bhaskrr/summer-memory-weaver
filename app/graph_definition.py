@@ -14,6 +14,7 @@ class State(TypedDict):
     length_preference: str
     extracted_info: List[dict]
     narrative_plan: dict
+    creative: bool
     output: str
 
 
@@ -40,7 +41,8 @@ def story_generator_node(state: State):
     print(f"StoryGeneratorAgent: Generating story...")
     generated_story = story_generator_agent.generate_story(
         state["extracted_info"], state["narrative_plan"],
-        state["tone"], state["length_preference"]
+        state["tone"], state["length_preference"],
+        state["creative"],
     )
     print("Story generation complete.")
     return {"output": generated_story}
