@@ -1,6 +1,6 @@
-from app.services.memory_parser import MemoryParserAgent
-from app.services.narrative_planner import NarrativePlannerAgent
-from app.services.story_generator import StoryGeneratorAgent
+from services.memory_parser import MemoryParserAgent
+from services.narrative_planner import NarrativePlannerAgent
+from services.story_generator import StoryGeneratorAgent
 
 from langgraph.graph import StateGraph
 from langgraph.graph import START, END
